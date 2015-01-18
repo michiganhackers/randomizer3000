@@ -45,22 +45,19 @@ Meteor.methods({
         if(people.length < 2) num_groups = 1;
 
         for(var j = 0; j < num_groups; j++) {
-            results.push([]);
+            results.push({"team_num": j + 1, "members": []});
         }
-            console.log(results);
-        console.dir(results);
         for(var k = 0; k < people.length; k++) {
             var index = Math.floor((Math.random() * num_groups));
             if(!results[index]) continue;
             while((results[index].length > 1 && !odd) || (results[index].length > 2) && odd) {
                 index = Math.floor((Math.random() * num_groups));
             }
-            results[index].push(people[k].profile.name);
+            results[index]["members"].push(people[k].profile.name);
         }
         
         groups[subject_title] = results;
     }
-    console.dir(groups);
     
     HackNights.insert({
         groups: groups,
@@ -84,7 +81,7 @@ Meteor.methods({
         upsert: true
     });
     */
-        var user = Meteor.user();
+    var user = Meteor.user();
     Meteor.users.update({_id: user._id}, { $set: {'profile.subject': text }});
   },
   deleteSubject: function (subjectId) {

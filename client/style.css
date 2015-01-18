@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  background-color: #F2CB84;
+  background-image: linear-gradient(to bottom, #FFA500, #FFD27F 100%);
   background-attachment: fixed;
 
   position: absolute;
@@ -16,6 +16,10 @@ body {
 
   font-size: 14px;
 }
+
+body p {
+  padding-left: 25px;
+}
 .selected {
     background-color: orange;
 }
@@ -27,14 +31,21 @@ body {
 }
 
 header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
-  padding: 20px 15px 15px 15px;
+  background-color: #FFD27F;
+  padding: 10px 15px 15px 15px;
   position: relative;
+}
+
+header a {
+  color: #EE7600;
+  text-decoration: none;
+  padding-left: 12px;
+  padding-right: 30px;
 }
 
 #login-buttons {
   display: block;
+  float: right;
 }
 
 h1 {
@@ -42,7 +53,32 @@ h1 {
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
-  margin-right: 1em;
+  padding-top: 25px;
+  padding-left: 25px;
+  text-align: center;
+  margin: auto;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding-top: 25px;
+  padding-left: 25px;
+  text-align: center;
+  margin: auto;
+}
+
+h3 {
+  font-size: 1em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding-top: 25px;
+  padding-left: 25px;
+  text-align: center;
+  margin: auto;
 }
 
 form {
@@ -53,9 +89,9 @@ form {
   */
 }
 
-.new-task input {
+.new-subject input {
   box-sizing: border-box;
-  padding: 10px 0;
+  padding: 10px 25px;
   background: transparent;
   border: none;
   width: 100%;
@@ -63,7 +99,7 @@ form {
   font-size: 1em;
 }
 
-.new-task input:focus{
+.new-subject input:focus{
   outline: 0;
 }
 
@@ -114,6 +150,32 @@ header .hide-completed {
   margin-left: 5px;
 }
 
+.centered {
+  width: 100%;
+  padding: auto;
+  text-align: center;
+}
+
+.ultimate_button {
+  width: 50%;
+  height: 50%;
+  padding: 50px;
+  margin: 25px;
+  background-image: -webkit-gradient(linear,  left top,  left bottom, 
+    color-stop(0.00, red), 
+    color-stop(16%, orange),
+    color-stop(32%, yellow),
+    color-stop(48%, green),
+    color-stop(60%, blue),
+    color-stop(76%, indigo),
+    color-stop(1.00, violet));
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 20px;
+}
+
+
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
@@ -124,7 +186,7 @@ header .hide-completed {
     clear: both;
   }
 
-  .new-task input {
+  .new-subject input {
     padding-bottom: 5px;
   }
 }
