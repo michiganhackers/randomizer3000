@@ -1,0 +1,67 @@
+
+<template name="layout">
+
+    <head>
+      <title>Todo List</title>
+    </head>
+
+  <div class="container">
+    <header>
+    {{> loginButtons}}
+    </header>
+
+    {{> yield}}
+</div>
+</template>
+
+<template name="admin">
+    <button class="ultimate_button">ULTIMATE BUTTON</button>
+</template>
+
+<template name="results">
+    <h1>Results</h1>
+    {{#each groups}}
+        <h2>{{subject}}</h2>
+        {{> group}}
+    {{/each}}
+</template>
+
+<template name="group">
+    {{#each teams}}
+        {{memberCount}}
+        {{> team members}}
+    {{/each}}
+</template>
+
+<template name="team">
+    {{#each members}}
+        <h3>team member</h3>
+        {{this}}
+    {{/each}}
+</template>
+
+<template name="home">
+
+    <h1>I'm working on {{thing}}</h1>
+
+    {{#if currentUser}}
+    <form class="new-subject">
+      <input type="text" name="text" placeholder="What do you plan on working on?" />
+    </form>
+    {{/if}}
+
+
+    <ul>
+      {{#each subjects}}
+        {{> subject}}
+      {{/each}}
+    </ul>
+
+</template>
+
+
+<template name="subject">
+    <li class="subject_item {{#if isSelected}}selected{{/if}}">
+        <span class="text">{{title}}</span>
+    </li>
+</template>
