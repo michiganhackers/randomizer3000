@@ -2,11 +2,13 @@
 <template name="layout">
 
     <head>
-      <title>Todo List</title>
+      <title>Randomizer 3000</title>
     </head>
 
   <div class="container">
     <header>
+        <a href="/">home</a>
+        <a href="/results">teams</a>
     {{> loginButtons}}
     </header>
 
@@ -15,34 +17,35 @@
 </template>
 
 <template name="admin">
-    <button class="ultimate_button">ULTIMATE BUTTON</button>
+    <div class="centered">
+        <button class="ultimate_button">ULTIMATE BUTTON</button>
+    </div>
 </template>
 
 <template name="results">
-    <h1>Results</h1>
+    <h1>The Teams</h1><br>
     {{#each groups}}
-        <h2>{{subject}}</h2>
+        <h2>{{subject}}</h2><br>
         {{> group}}
     {{/each}}
 </template>
 
 <template name="group">
     {{#each teams}}
-        {{memberCount}}
+        <h3>Team {{ teamNum }}</h3>
         {{> team members}}
     {{/each}}
 </template>
 
 <template name="team">
     {{#each members}}
-        <h3>team member</h3>
-        {{this}}
+        <p>{{this}}</p>
     {{/each}}
 </template>
 
 <template name="home">
 
-    <h1>I'm working on {{thing}}</h1>
+    <h1>I'm going to work on {{thing}}</h1>
 
     {{#if currentUser}}
     <form class="new-subject">

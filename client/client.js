@@ -20,11 +20,9 @@ Router.route('/results', function () {
 
 Template.admin.events({
     "click .ultimate_button": function (event) {
-        console.log('blah');
       // This function is called when the new task form is submitted
 
       Meteor.call("addHackNight");
-        console.log('blah2');
       // Prevent default form submit
       return false;
     }
@@ -39,10 +37,13 @@ Template.group.helpers({
     memberCount: function () {
         // If hide completed is checked, filter tasks
         if(!this) return null;
-        return this.length;
+        return this["members"].length;
     }, 
     members: function () {
-        return this;
+        return this["members"];
+    },
+    teamNum: function() {
+        return this["team_num"];
     }
 });
 
@@ -82,12 +83,10 @@ Template.home.helpers({
 
 Template.home.events({
     "submit .new-subject": function (event) {
-        console.log('blah');
       // This function is called when the new task form is submitted
       var text = event.target.text.value;
 
       Meteor.call("addSubject", text);
-        console.log('blah2');
 
       // Clear form
       event.target.text.value = "";
